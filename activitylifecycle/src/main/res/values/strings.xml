@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">ActivityLifeCycle</string>
+    <string name="content">普通的Activity</string>
+    <string name="dialogContent">对话框Activity</string>
+    <string name="startNormalActivity">启动普通Activity</string>
+    <string name="startDialogActivity">启动对话框Activity</string>
+</resources>
