@@ -19,13 +19,11 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
         findViewById(R.id.startOtherActivity).setOnClickListener(this);
         findViewById(R.id.startOtherActivity2).setOnClickListener(this);
         findViewById(R.id.startOtherActivity3).setOnClickListener(this);
+        findViewById(R.id.list).setOnClickListener(this);
     }
 
     /**
      * 获取 Activity 的返回值,需要使用 startActivityForResult 方式启动
-     * @param requestCode
-     * @param resultCode
-     * @param data
      */
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
@@ -41,8 +39,6 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
 
     /**
      * 创建菜单,返回true才可以显示菜单,返回false将不会显示菜单
-     * @param menu
-     * @return
      */
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -52,8 +48,6 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
 
     /**
      * 菜单项目选中事件
-     * @param item
-     * @return
      */
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
@@ -91,6 +85,10 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
                 // 获取返回值的启动的方式
                 intent = new Intent(MainActivity.this, SecondActivity.class);
                 startActivityForResult(intent, 1);
+                break;
+            case R.id.list:
+                intent = new Intent(this, RecyclerViewActivity.class);
+                startActivity(intent);
                 break;
             default:
         }

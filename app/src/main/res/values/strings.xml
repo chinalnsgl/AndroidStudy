@@ -9,4 +9,5 @@
     <string name="StartOtherActivity3">获取返回值的启动方式</string>
     <string name="logout">退出</string>
     <string name="progress">进度对话框</string>
+    <string name="list">启动列表Activity</string>
 </resources>

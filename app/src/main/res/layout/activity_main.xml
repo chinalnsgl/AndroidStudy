@@ -32,4 +32,12 @@
         android:background="@color/green"
         android:layout_below="@id/startOtherActivity2"
         android:layout_marginTop="@dimen/button_vertical_margin"/>
+    <Button
+        android:id="@+id/list"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/list"
+        android:background="@color/green"
+        android:layout_below="@id/startOtherActivity3"
+        android:layout_marginTop="@dimen/button_vertical_margin"/>
 </RelativeLayout>

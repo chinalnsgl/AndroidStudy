@@ -4,4 +4,5 @@
     <string name="dialogContent">对话框Activity</string>
     <string name="startNormalActivity">启动普通Activity</string>
     <string name="startDialogActivity">启动对话框Activity</string>
+    <string name="title_activity_main2">Main2Activity</string>
 </resources>
