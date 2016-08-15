@@ -1,4 +1,6 @@
-package com.study.sgl.androidstudy.model;
+package com.study.sgl.androidstudy.data.remote;
+
+import com.study.sgl.androidstudy.data.local.BeautifulGirl;
 
 import java.util.ArrayList;
 import java.util.List;

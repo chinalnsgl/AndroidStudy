@@ -1,4 +1,4 @@
-package com.study.sgl.androidstudy.model;
+package com.study.sgl.androidstudy.data.local;
 
 /**
  * @author Song.gl

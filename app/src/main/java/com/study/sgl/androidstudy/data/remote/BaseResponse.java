@@ -1,4 +1,4 @@
-package com.study.sgl.androidstudy.model;
+package com.study.sgl.androidstudy.data.remote;
 
 /**
  * 请求结果基类

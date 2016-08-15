@@ -8,8 +8,8 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
 import com.google.gson.Gson;
-import com.study.sgl.androidstudy.model.BeautifulGirl;
-import com.study.sgl.androidstudy.model.GirlResponse;
+import com.study.sgl.androidstudy.data.local.BeautifulGirl;
+import com.study.sgl.androidstudy.data.remote.GirlResponse;
 import com.study.sgl.tools.CommonAdapter;
 import com.study.sgl.tools.HttpCallBackListener;
 import com.study.sgl.tools.HttpUtil;
