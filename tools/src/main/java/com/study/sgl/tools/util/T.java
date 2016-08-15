@@ -1,7 +1,9 @@
-package com.study.sgl.tools;
+package com.study.sgl.tools.util;
 
 import android.content.Context;
 import android.widget.Toast;
+
+import com.study.sgl.tools.Constants;
 
 /**
  * Toast 工具类

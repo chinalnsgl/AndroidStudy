@@ -10,10 +10,10 @@ import android.support.v7.widget.RecyclerView;
 import com.google.gson.Gson;
 import com.study.sgl.androidstudy.data.local.BeautifulGirl;
 import com.study.sgl.androidstudy.data.remote.GirlResponse;
-import com.study.sgl.tools.CommonAdapter;
-import com.study.sgl.tools.HttpCallBackListener;
-import com.study.sgl.tools.HttpUtil;
-import com.study.sgl.tools.ViewHolder;
+import com.study.sgl.tools.adapter.CommonAdapter;
+import com.study.sgl.tools.HttpUtil.HttpCallBackListener;
+import com.study.sgl.tools.HttpUtil.HttpUtil;
+import com.study.sgl.tools.adapter.ViewHolder;
 
 import java.util.ArrayList;
 

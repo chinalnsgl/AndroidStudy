@@ -1,4 +1,4 @@
-package com.study.sgl.tools;
+package com.study.sgl.tools.HttpUtil;
 
 import java.io.BufferedReader;
 import java.io.InputStream;

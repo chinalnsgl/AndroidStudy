@@ -1,4 +1,4 @@
-package com.study.sgl.tools;
+package com.study.sgl.tools.base;
 
 import android.app.Activity;
 

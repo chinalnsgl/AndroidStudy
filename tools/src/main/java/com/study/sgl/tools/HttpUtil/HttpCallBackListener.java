@@ -1,4 +1,4 @@
-package com.study.sgl.tools;
+package com.study.sgl.tools.HttpUtil;
 
 /**
  * 网络请求回调接口

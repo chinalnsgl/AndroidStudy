@@ -1,6 +1,8 @@
-package com.study.sgl.tools;
+package com.study.sgl.tools.util;
 
 import android.util.Log;
+
+import com.study.sgl.tools.Constants;
 
 /**
  * 自定义的日志工具类

@@ -6,9 +6,9 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
-import com.study.sgl.tools.BaseActivity;
-import com.study.sgl.tools.L;
-import com.study.sgl.tools.T;
+import com.study.sgl.tools.base.BaseActivity;
+import com.study.sgl.tools.util.L;
+import com.study.sgl.tools.util.T;
 
 public class MainActivity extends BaseActivity implements View.OnClickListener {
 

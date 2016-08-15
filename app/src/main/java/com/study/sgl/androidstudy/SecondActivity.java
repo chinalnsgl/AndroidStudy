@@ -8,9 +8,9 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
 
-import com.study.sgl.tools.ActivityCollector;
-import com.study.sgl.tools.BaseActivity;
-import com.study.sgl.tools.L;
+import com.study.sgl.tools.base.ActivityCollector;
+import com.study.sgl.tools.base.BaseActivity;
+import com.study.sgl.tools.util.L;
 
 public class SecondActivity extends BaseActivity implements View.OnClickListener {
 

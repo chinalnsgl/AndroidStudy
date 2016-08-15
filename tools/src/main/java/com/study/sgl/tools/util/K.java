@@ -1,4 +1,4 @@
-package com.study.sgl.tools;
+package com.study.sgl.tools.util;
 
 import android.content.Context;
 import android.view.View;

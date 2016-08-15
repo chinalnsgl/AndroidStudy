@@ -1,7 +1,10 @@
-package com.study.sgl.tools;
+package com.study.sgl.tools.base;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+
+import com.study.sgl.tools.base.ActivityCollector;
+import com.study.sgl.tools.util.L;
 
 /**
  * BaseActivity ,监控当前使用Activity,并使用工具类辅助,可以随时关闭程序

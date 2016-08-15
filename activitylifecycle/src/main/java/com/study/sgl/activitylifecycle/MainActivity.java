@@ -7,7 +7,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.view.WindowManager;
 
-import com.study.sgl.tools.L;
+import com.study.sgl.tools.util.L;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
