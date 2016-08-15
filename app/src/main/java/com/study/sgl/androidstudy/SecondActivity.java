@@ -42,10 +42,11 @@ public class SecondActivity extends BaseActivity implements View.OnClickListener
                 finish();
                 break;
             case R.id.logout:
+                // 标准弹出框
                 AlertDialog dialog = new AlertDialog.Builder(this)
                         .setTitle("提示")
                         .setMessage("确定退出程序吗?")
-                        .setCancelable(false)
+                        .setCancelable(false) // 允许点击其它位置取消
                         .setNegativeButton("取消", new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialogInterface, int i) {
@@ -59,6 +60,7 @@ public class SecondActivity extends BaseActivity implements View.OnClickListener
                         }).show();
                 break;
             case R.id.progress:
+                // 进度条对话框
                 ProgressDialog progressDialog = new ProgressDialog(this);
                 progressDialog.setTitle("提示");
                 progressDialog.setMessage("模拟网络请求");

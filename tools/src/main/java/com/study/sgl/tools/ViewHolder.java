@@ -72,6 +72,7 @@ public class ViewHolder extends RecyclerView.ViewHolder{
 
     /**
      * 设置图片
+     * 以下 setXXX 方法可随时添加,方便调用者处理绑定控件.
      */
     public ViewHolder setImage(int viewId, int resId) {
         ImageView imageView = getView(viewId);
@@ -81,13 +82,14 @@ public class ViewHolder extends RecyclerView.ViewHolder{
 
     /**
      * 设置图片
+     * 使用 Glide 请求网络图片
      */
     public ViewHolder setImage(int viewId, String url) {
         ImageView imageView = getView(viewId);
         Glide.with(context)
-                .load(url)
-                .crossFade()
-                .diskCacheStrategy(DiskCacheStrategy.ALL)
+                .load(url)// 加载图片
+                .crossFade()// 淡出效果
+                .diskCacheStrategy(DiskCacheStrategy.ALL)// 缓存
                 .into(imageView);
         return this;
     }

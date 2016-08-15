@@ -87,6 +87,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
                 startActivityForResult(intent, 1);
                 break;
             case R.id.list:
+                // 启动列表Activity
                 intent = new Intent(this, RecyclerViewActivity.class);
                 startActivity(intent);
                 break;

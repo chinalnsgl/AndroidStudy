@@ -73,6 +73,9 @@ public abstract class CommonAdapter<T> extends RecyclerView.Adapter<ViewHolder> 
         this.multiItemTypeSupport = multiItemTypeSupport;
     }
 
+    /**
+     * 获取条目布局类型,返回值到 onCreateViewHolder 方法中第二个参数
+     */
     @Override
     public int getItemViewType(int position) {
         if (multiItemTypeSupport != null) {
