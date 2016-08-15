@@ -47,7 +47,6 @@ public class RecyclerViewActivity extends AppCompatActivity {
             }
         };
         RecyclerView rv = (RecyclerView) findViewById(R.id.rv);
-
         rv.setAdapter(adapter);
         rv.setLayoutManager(new LinearLayoutManager(this));
     }

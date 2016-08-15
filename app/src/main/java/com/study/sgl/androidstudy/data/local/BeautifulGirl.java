@@ -1,22 +1,12 @@
 package com.study.sgl.androidstudy.data.local;
 
 /**
+ * 美女实例类
+ *
  * @author Song.gl
  * @version 2016 08 15 13:14
  */
 public class BeautifulGirl {
-
-    /**
-     * _id : 57ad4023421aa949ef961f4b
-     * createdAt : 2016-08-12T11:18:59.569Z
-     * desc : 8-12
-     * publishedAt : 2016-08-12T11:39:10.578Z
-     * source : chrome
-     * type : 福利
-     * url : http://ww3.sinaimg.cn/large/610dc034jw1f6qsn74e3yj20u011htc6.jpg
-     * used : true
-     * who : 代码家
-     */
 
     private String _id;
     private String createdAt;

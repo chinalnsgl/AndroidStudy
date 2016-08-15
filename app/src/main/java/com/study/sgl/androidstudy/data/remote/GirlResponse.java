@@ -6,6 +6,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
+ * 美女请求结果
+ *
  * @author Song.gl
  * @version 2016 08 15 13:16
  */
