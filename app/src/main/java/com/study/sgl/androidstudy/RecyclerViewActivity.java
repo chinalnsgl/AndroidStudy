@@ -3,21 +3,21 @@ package com.study.sgl.androidstudy;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
-import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
 import com.google.gson.Gson;
 import com.study.sgl.androidstudy.data.local.BeautifulGirl;
 import com.study.sgl.androidstudy.data.remote.GirlResponse;
-import com.study.sgl.tools.adapter.CommonAdapter;
 import com.study.sgl.tools.HttpUtil.HttpCallBackListener;
 import com.study.sgl.tools.HttpUtil.HttpUtil;
+import com.study.sgl.tools.adapter.CommonAdapter;
 import com.study.sgl.tools.adapter.ViewHolder;
+import com.study.sgl.tools.base.BaseActivity;
 
 import java.util.ArrayList;
 
-public class RecyclerViewActivity extends AppCompatActivity {
+public class RecyclerViewActivity extends BaseActivity {
 
     private final static int SHOW_RESPONSE = 0;
     private CommonAdapter<BeautifulGirl> adapter;

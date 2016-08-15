@@ -20,6 +20,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
         findViewById(R.id.startOtherActivity2).setOnClickListener(this);
         findViewById(R.id.startOtherActivity3).setOnClickListener(this);
         findViewById(R.id.list).setOnClickListener(this);
+        findViewById(R.id.List2).setOnClickListener(this);
     }
 
     /**
@@ -89,6 +90,10 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
             case R.id.list:
                 // 启动列表Activity
                 intent = new Intent(this, RecyclerViewActivity.class);
+                startActivity(intent);
+                break;
+            case R.id.List2:
+                intent = new Intent(this, MulitRecyclerViewActivity.class);
                 startActivity(intent);
                 break;
             default:
