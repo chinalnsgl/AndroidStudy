@@ -10,4 +10,6 @@
     <string name="logout">退出</string>
     <string name="progress">进度对话框</string>
     <string name="list">启动列表Activity</string>
+    <string name="gril">美女</string>
+    <string name="girl">美女</string>
 </resources>

@@ -9,23 +9,29 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.engine.DiskCacheStrategy;
+
 /**
  * 通用的ViewHolder
  *
  * @author Song.gl
  * @version 2016 08 14 13:11
  */
+@SuppressWarnings("unused")
 public class ViewHolder extends RecyclerView.ViewHolder{
 
     private SparseArray<View> views; // 控件集合
     private View currentView; // 当前视图
+    private Context context; // 上下文
 
     /**
      * 构造函数，初始化属性
      */
-    public ViewHolder(View itemView) {
+    public ViewHolder(View itemView, Context context) {
         super(itemView);
         this.currentView = itemView;
+        this.context = context;
         this.views = new SparseArray<>();
     }
 
@@ -36,21 +42,21 @@ public class ViewHolder extends RecyclerView.ViewHolder{
      * @param parent 父容器
      */
     public static ViewHolder getInstants(int layoutId, Context context, ViewGroup parent) {
-        return new ViewHolder(LayoutInflater.from(context).inflate(layoutId, parent, false));
+        return new ViewHolder(LayoutInflater.from(context).inflate(layoutId, parent, false),context);
     }
 
     /**
      * 通过控件ID 获取控件
      * @param viewId 控件ID
-     * @param <T> 控件
+     * @param <V> 控件
      */
-    public <T extends View> T getView(int viewId) {
+    public <V extends View> V getView(int viewId) {
         View view = views.get(viewId);
         if (view == null) {
             view = currentView.findViewById(viewId);
             views.put(viewId, view);
         }
-        return (T) view;
+        return (V) view;
     }
 
     /**
@@ -64,12 +70,31 @@ public class ViewHolder extends RecyclerView.ViewHolder{
         return this;
     }
 
+    /**
+     * 设置图片
+     */
     public ViewHolder setImage(int viewId, int resId) {
         ImageView imageView = getView(viewId);
         imageView.setImageResource(resId);
         return this;
     }
 
+    /**
+     * 设置图片
+     */
+    public ViewHolder setImage(int viewId, String url) {
+        ImageView imageView = getView(viewId);
+        Glide.with(context)
+                .load(url)
+                .crossFade()
+                .diskCacheStrategy(DiskCacheStrategy.ALL)
+                .into(imageView);
+        return this;
+    }
+
+    /**
+     * 设置控件点击事件
+     */
     public ViewHolder setOnClickListener(int viewId, View.OnClickListener listener) {
         View view = getView(viewId);
         view.setOnClickListener(listener);
