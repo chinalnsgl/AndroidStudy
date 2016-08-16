@@ -133,5 +133,6 @@ public class ListActivity extends BaseActivityForDagger implements ListContract.
     public void moreList(List<BeautifulGirl> data) {
         adapter.insertData(data);
         isLoadMore = true;
+        binding.swipeRefresh.setRefreshing(false);
     }
 }
