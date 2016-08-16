@@ -7,9 +7,11 @@ import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.View;
 
 import com.bumptech.glide.Glide;
 import com.example.sgl.dagger2databindingmvp.BR;
+import com.example.sgl.dagger2databindingmvp.DetailActivity;
 import com.example.sgl.dagger2databindingmvp.R;
 import com.example.sgl.dagger2databindingmvp.adapter.DataBindAdapter;
 import com.example.sgl.dagger2databindingmvp.base.BaseActivityForDagger;
@@ -41,7 +43,17 @@ public class ListActivity extends BaseActivityForDagger implements ListContract.
         super.onCreate(savedInstanceState);
         binding = DataBindingUtil.setContentView(this, R.layout.activity_list);
         // 初始化 adapter
-        adapter = new DataBindAdapter<BeautifulGirl>(new ArrayList<BeautifulGirl>(),R.layout.item, BR.girl) {
+        adapter = new DataBindAdapter<BeautifulGirl>(new ArrayList<BeautifulGirl>(), R.layout.item, BR.girl, new DataBindAdapter.OnItemClickListener<BeautifulGirl>() {
+            @Override
+            public void onItemClick(BeautifulGirl girl) {
+                DetailActivity.actionStart(ListActivity.this, girl);
+            }
+
+            @Override
+            public boolean onItemLongClick(View view, int position) {
+                return false;
+            }
+        }) {
             /**
              * 绑定数据
              * @param viewDataBinding 数据绑定对象
@@ -50,7 +62,7 @@ public class ListActivity extends BaseActivityForDagger implements ListContract.
             @Override
             protected void convert(ViewDataBinding viewDataBinding, BeautifulGirl beautifulGirl) {
                 ItemBinding itemBinding = (ItemBinding) viewDataBinding;
-                Glide.with(ListActivity.this).load(beautifulGirl.getUrl()).into(itemBinding.image);
+                Glide.with(ListActivity.this).load(beautifulGirl.getUrl()).placeholder(R.mipmap.placeholder).crossFade().into(itemBinding.image);
             }
         };
         linearLayoutManager = new LinearLayoutManager(this);
@@ -58,6 +70,7 @@ public class ListActivity extends BaseActivityForDagger implements ListContract.
         binding.recyclerView.setAdapter(adapter);
         binding.recyclerView.setHasFixedSize(true);
         binding.recyclerView.setItemAnimator(new DefaultItemAnimator());
+
         // 设置上拉加载
         binding.recyclerView.setOnScrollListener(new RecyclerView.OnScrollListener() {
 

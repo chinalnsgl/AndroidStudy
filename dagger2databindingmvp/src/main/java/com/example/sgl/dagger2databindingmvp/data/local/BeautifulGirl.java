@@ -4,13 +4,15 @@ import android.databinding.BaseObservable;
 import android.databinding.Bindable;
 import com.example.sgl.dagger2databindingmvp.BR;
 
+import java.io.Serializable;
+
 /**
  * 美女实例类
  *
  * @author Song.gl
  * @version 2016 08 15 13:14
  */
-public class BeautifulGirl extends BaseObservable {
+public class BeautifulGirl extends BaseObservable implements Serializable {
 
     private String _id;
     private String createdAt;

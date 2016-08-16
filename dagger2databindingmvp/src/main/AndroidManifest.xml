@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android"
-          package="com.example.sgl.dagger2databindingmvp">
+<manifest package="com.example.sgl.dagger2databindingmvp"
+          xmlns:android="http://schemas.android.com/apk/res/android">
 
     <uses-permission android:name="android.permission.INTERNET"/>
 
@@ -19,6 +19,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".listmodule.ListActivity">
+        </activity>
+        <activity android:name=".DetailActivity">
         </activity>
     </application>
 
