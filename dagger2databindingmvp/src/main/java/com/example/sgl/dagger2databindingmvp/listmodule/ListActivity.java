@@ -34,6 +34,7 @@ public class ListActivity extends BaseActivityForDagger implements ListContract.
     DataBindAdapter<BeautifulGirl> adapter; // 适配器
     LinearLayoutManager linearLayoutManager; // 布局管理器
     private int pageNo = 1; // 页数
+    private boolean isLoadMore = true;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -68,7 +69,9 @@ public class ListActivity extends BaseActivityForDagger implements ListContract.
                 // 获取项目总数
                 int totalItemCount = linearLayoutManager.getItemCount();
                 // 刷新
-                if (lastVisibleItem >= totalItemCount - 2 && dy > 0) {
+                if (isLoadMore && lastVisibleItem >= totalItemCount - 2 && dy > 0) {
+                    binding.swipeRefresh.setRefreshing(true);
+                    isLoadMore = false;
                     presenter.loadMore(++pageNo);
                 }
             }
@@ -87,8 +90,6 @@ public class ListActivity extends BaseActivityForDagger implements ListContract.
                     L.i(TAG,"ignore!");
                 } else {
                     presenter.loadData();
-                    pageNo = 1;
-                    binding.swipeRefresh.setRefreshing(false);
                 }
             }
         });
@@ -124,10 +125,13 @@ public class ListActivity extends BaseActivityForDagger implements ListContract.
 
     public void showList(List<BeautifulGirl> data) {
         adapter.replaceData(data);
+        pageNo = 1;
+        binding.swipeRefresh.setRefreshing(false);
     }
 
     @Override
     public void moreList(List<BeautifulGirl> data) {
         adapter.insertData(data);
+        isLoadMore = true;
     }
 }
