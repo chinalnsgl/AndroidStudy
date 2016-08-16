@@ -6,3 +6,7 @@
 .DS_Store
 /build
 /captures
+/gradle/
+dagger2MVP/libs/
+dagger2MVP/src/main/res/drawable/
+/.idea/
