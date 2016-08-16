@@ -13,7 +13,8 @@ import com.example.sgl.dagger2databindingmvp.databinding.ActivityDetailBinding;
 
 public class DetailActivity extends BaseActivityForDagger {
 
-    public static String param;
+    public static String param; // 参数
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -21,12 +22,20 @@ public class DetailActivity extends BaseActivityForDagger {
         ActivityDetailBinding binding = DataBindingUtil.setContentView(this, R.layout.activity_detail);
 
         Intent intent = getIntent();
+        if (intent == null) {
+            finish();
+        }
         BeautifulGirl girl = (BeautifulGirl) intent.getSerializableExtra(param);
 
         Glide.with(this).load(girl.getUrl()).into(binding.image);
 
     }
 
+    /**
+     * 提供静态方法实例化本类,有利于合作开发
+     * @param context 上下文
+     * @param girl 实体类
+     */
     public static void actionStart(Context context, BeautifulGirl girl) {
         Intent intent = new Intent(context, DetailActivity.class);
         intent.putExtra(param, girl);
