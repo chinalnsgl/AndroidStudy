@@ -3,14 +3,16 @@
   <component name="GradleSettings">
     <option name="linkedExternalProjectsSettings">
       <GradleProjectSettings>
-        <option name="distributionType" value="DEFAULT_WRAPPED" />
+        <option name="distributionType" value="LOCAL" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="gradleHome" value="D:\Android\Android Studio\gradle\gradle-2.14.1" />
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/activitylifecycle" />
             <option value="$PROJECT_DIR$/app" />
             <option value="$PROJECT_DIR$/dagger2databindingmvp" />
+            <option value="$PROJECT_DIR$/mvpexample" />
             <option value="$PROJECT_DIR$/tools" />
           </set>
         </option>
@@ -20,6 +22,7 @@
             <option value="$PROJECT_DIR$/activitylifecycle" />
             <option value="$PROJECT_DIR$/app" />
             <option value="$PROJECT_DIR$/dagger2databindingmvp" />
+            <option value="$PROJECT_DIR$/mvpexample" />
             <option value="$PROJECT_DIR$/tools" />
           </set>
         </option>
