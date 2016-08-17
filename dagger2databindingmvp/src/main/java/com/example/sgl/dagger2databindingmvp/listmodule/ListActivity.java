@@ -7,9 +7,11 @@ import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.View;
 
 import com.bumptech.glide.Glide;
 import com.example.sgl.dagger2databindingmvp.BR;
+import com.example.sgl.dagger2databindingmvp.DetailActivity;
 import com.example.sgl.dagger2databindingmvp.R;
 import com.example.sgl.dagger2databindingmvp.adapter.DataBindAdapter;
 import com.example.sgl.dagger2databindingmvp.base.BaseActivityForDagger;
@@ -34,13 +36,24 @@ public class ListActivity extends BaseActivityForDagger implements ListContract.
     DataBindAdapter<BeautifulGirl> adapter; // 适配器
     LinearLayoutManager linearLayoutManager; // 布局管理器
     private int pageNo = 1; // 页数
+    private boolean isLoadMore = true;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         binding = DataBindingUtil.setContentView(this, R.layout.activity_list);
         // 初始化 adapter
-        adapter = new DataBindAdapter<BeautifulGirl>(new ArrayList<BeautifulGirl>(),R.layout.item, BR.girl) {
+        adapter = new DataBindAdapter<BeautifulGirl>(new ArrayList<BeautifulGirl>(), R.layout.item, BR.girl, new DataBindAdapter.OnItemClickListener<BeautifulGirl>() {
+            @Override
+            public void onItemClick(BeautifulGirl girl) {
+                DetailActivity.actionStart(ListActivity.this, girl);
+            }
+
+            @Override
+            public boolean onItemLongClick(View view, int position) {
+                return false;
+            }
+        }) {
             /**
              * 绑定数据
              * @param viewDataBinding 数据绑定对象
@@ -49,7 +62,7 @@ public class ListActivity extends BaseActivityForDagger implements ListContract.
             @Override
             protected void convert(ViewDataBinding viewDataBinding, BeautifulGirl beautifulGirl) {
                 ItemBinding itemBinding = (ItemBinding) viewDataBinding;
-                Glide.with(ListActivity.this).load(beautifulGirl.getUrl()).into(itemBinding.image);
+                Glide.with(ListActivity.this).load(beautifulGirl.getUrl()).placeholder(R.mipmap.placeholder).crossFade().into(itemBinding.image);
             }
         };
         linearLayoutManager = new LinearLayoutManager(this);
@@ -57,6 +70,7 @@ public class ListActivity extends BaseActivityForDagger implements ListContract.
         binding.recyclerView.setAdapter(adapter);
         binding.recyclerView.setHasFixedSize(true);
         binding.recyclerView.setItemAnimator(new DefaultItemAnimator());
+
         // 设置上拉加载
         binding.recyclerView.setOnScrollListener(new RecyclerView.OnScrollListener() {
 
@@ -68,7 +82,9 @@ public class ListActivity extends BaseActivityForDagger implements ListContract.
                 // 获取项目总数
                 int totalItemCount = linearLayoutManager.getItemCount();
                 // 刷新
-                if (lastVisibleItem >= totalItemCount - 2 && dy > 0) {
+                if (isLoadMore && lastVisibleItem >= totalItemCount - 2 && dy > 0) {
+                    binding.swipeRefresh.setRefreshing(true);
+                    isLoadMore = false;
                     presenter.loadMore(++pageNo);
                 }
             }
@@ -87,8 +103,6 @@ public class ListActivity extends BaseActivityForDagger implements ListContract.
                     L.i(TAG,"ignore!");
                 } else {
                     presenter.loadData();
-                    pageNo = 1;
-                    binding.swipeRefresh.setRefreshing(false);
                 }
             }
         });
@@ -124,10 +138,14 @@ public class ListActivity extends BaseActivityForDagger implements ListContract.
 
     public void showList(List<BeautifulGirl> data) {
         adapter.replaceData(data);
+        pageNo = 1;
+        binding.swipeRefresh.setRefreshing(false);
     }
 
     @Override
     public void moreList(List<BeautifulGirl> data) {
         adapter.insertData(data);
+        isLoadMore = true;
+        binding.swipeRefresh.setRefreshing(false);
     }
 }
