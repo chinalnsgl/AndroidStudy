@@ -72,7 +72,7 @@ public class ListActivity extends BaseActivityForDagger implements ListContract.
         binding.recyclerView.setItemAnimator(new DefaultItemAnimator());
 
         // 设置上拉加载
-        binding.recyclerView.setOnScrollListener(new RecyclerView.OnScrollListener() {
+        binding.recyclerView.addOnScrollListener(new RecyclerView.OnScrollListener() {
 
             @Override
             public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
@@ -82,7 +82,7 @@ public class ListActivity extends BaseActivityForDagger implements ListContract.
                 // 获取项目总数
                 int totalItemCount = linearLayoutManager.getItemCount();
                 // 刷新
-                if (isLoadMore && lastVisibleItem >= totalItemCount - 2 && dy > 0) {
+                if (isLoadMore && lastVisibleItem >= totalItemCount - 2) {
                     binding.swipeRefresh.setRefreshing(true);
                     isLoadMore = false;
                     presenter.loadMore(++pageNo);

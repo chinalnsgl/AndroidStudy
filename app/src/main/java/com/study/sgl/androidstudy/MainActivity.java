@@ -5,12 +5,17 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
+import android.widget.PopupMenu;
 
 import com.study.sgl.tools.base.BaseActivity;
 import com.study.sgl.tools.util.L;
 import com.study.sgl.tools.util.T;
 
 public class MainActivity extends BaseActivity implements View.OnClickListener {
+
+
+    private Button popMenu;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,6 +26,9 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
         findViewById(R.id.startOtherActivity3).setOnClickListener(this);
         findViewById(R.id.list).setOnClickListener(this);
         findViewById(R.id.List2).setOnClickListener(this);
+        popMenu = (Button) findViewById(R.id.popMenu);
+        popMenu.setOnClickListener(this);
+        findViewById(R.id.popWindow).setOnClickListener(this);
     }
 
     /**
@@ -95,6 +103,28 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
             case R.id.List2:
                 intent = new Intent(this, MulitRecyclerViewActivity.class);
                 startActivity(intent);
+                break;
+            case R.id.popMenu:
+                final PopupMenu menu = new PopupMenu(this, popMenu);
+                menu.getMenuInflater().inflate(R.menu.main, menu.getMenu());
+                menu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
+                    @Override
+                    public boolean onMenuItemClick(MenuItem menuItem) {
+                        switch (menuItem.getItemId()) {
+                            case R.id.add_item:
+                                T.s(MainActivity.this, "效果ADD");
+                                break;
+                            case R.id.remove_item:
+                                T.s(MainActivity.this, "效果REmove");
+                                break;
+                        }
+                        return false;
+                    }
+                });
+                menu.show();
+                break;
+            case R.id.popWindow:
+                startActivity(new Intent(this, PopupWindowActivity.class));
                 break;
             default:
         }

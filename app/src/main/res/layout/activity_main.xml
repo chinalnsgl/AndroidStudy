@@ -48,4 +48,21 @@
         android:background="@color/green"
         android:layout_below="@id/list"
         android:layout_marginTop="@dimen/button_vertical_margin"/>
+    <Button
+        android:id="@+id/popMenu"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/popMenu"
+        android:background="@color/green"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginTop="@dimen/button_vertical_margin"/>
+    <Button
+        android:id="@+id/popWindow"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/popWindw"
+        android:background="@color/green"
+        android:layout_above="@id/popMenu"
+        android:layout_marginTop="@dimen/button_vertical_margin"/>
 </RelativeLayout>

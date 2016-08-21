@@ -28,6 +28,8 @@
         </activity>
         <activity android:name=".MulitRecyclerViewActivity">
         </activity>
+        <activity android:name=".PopupWindowActivity" android:theme="@style/MyDialogStyleBottom">
+        </activity>
     </application>
 
 </manifest>

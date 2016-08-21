@@ -13,4 +13,6 @@
     <string name="gril">美女</string>
     <string name="girl">美女</string>
     <string name="list2">启动列表Activity2</string>
+    <string name="popMenu">弹出菜单</string>
+    <string name="popWindw">弹出窗口 My Button</string>
 </resources>
