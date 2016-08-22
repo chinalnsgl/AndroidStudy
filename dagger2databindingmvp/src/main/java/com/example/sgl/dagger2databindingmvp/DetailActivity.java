@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.databinding.DataBindingUtil;
 import android.os.Bundle;
+import android.view.WindowManager;
 
 import com.bumptech.glide.Glide;
 import com.example.sgl.dagger2databindingmvp.base.BaseActivityForDagger;
@@ -18,6 +19,14 @@ public class DetailActivity extends BaseActivityForDagger {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        // 隐藏 ActionBar
+        if (getSupportActionBar() != null) {
+            getSupportActionBar().hide();
+        }
+        // 全屏显示
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
+                WindowManager.LayoutParams.FLAG_FULLSCREEN);
+
         setContentView(R.layout.activity_detail);
         ActivityDetailBinding binding = DataBindingUtil.setContentView(this, R.layout.activity_detail);
 

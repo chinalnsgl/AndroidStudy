@@ -7,6 +7,7 @@ import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.view.View;
 
 import com.bumptech.glide.Glide;
@@ -35,6 +36,7 @@ public class ListActivity extends BaseActivityForDagger implements ListContract.
     ActivityListBinding binding; // 数据绑定对象
     DataBindAdapter<BeautifulGirl> adapter; // 适配器
     LinearLayoutManager linearLayoutManager; // 布局管理器
+    StaggeredGridLayoutManager staggeredGridLayoutManager; // 瀑布流
     private int pageNo = 1; // 页数
     private boolean isLoadMore = true;
 
@@ -62,11 +64,13 @@ public class ListActivity extends BaseActivityForDagger implements ListContract.
             @Override
             protected void convert(ViewDataBinding viewDataBinding, BeautifulGirl beautifulGirl) {
                 ItemBinding itemBinding = (ItemBinding) viewDataBinding;
-                Glide.with(ListActivity.this).load(beautifulGirl.getUrl()).placeholder(R.mipmap.placeholder).crossFade().into(itemBinding.image);
+                Glide.with(ListActivity.this).load(beautifulGirl.getUrl())/*.placeholder(R.mipmap.placeholder)*/.fitCenter().into(itemBinding.image);
             }
         };
         linearLayoutManager = new LinearLayoutManager(this);
-        binding.recyclerView.setLayoutManager(linearLayoutManager);
+        staggeredGridLayoutManager = new StaggeredGridLayoutManager(2,StaggeredGridLayoutManager.VERTICAL);
+        binding.recyclerView.setLayoutManager(staggeredGridLayoutManager);
+        //binding.recyclerView.setLayoutManager(linearLayoutManager);
         binding.recyclerView.setAdapter(adapter);
         binding.recyclerView.setHasFixedSize(true);
         binding.recyclerView.setItemAnimator(new DefaultItemAnimator());
@@ -78,9 +82,12 @@ public class ListActivity extends BaseActivityForDagger implements ListContract.
             public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
                 super.onScrolled(recyclerView, dx, dy);
                 // 获取最后显示项目 从0开始
-                int lastVisibleItem = linearLayoutManager.findLastVisibleItemPosition();
+                //int lastVisibleItem = linearLayoutManager.findLastVisibleItemPosition();
+                int[] lastVisibleGroup = staggeredGridLayoutManager.findLastVisibleItemPositions(null);
+                int lastVisibleItem = Math.max(lastVisibleGroup[0], lastVisibleGroup[1]);
                 // 获取项目总数
-                int totalItemCount = linearLayoutManager.getItemCount();
+                //int totalItemCount = linearLayoutManager.getItemCount();
+                int totalItemCount = staggeredGridLayoutManager.getItemCount();
                 // 刷新
                 if (isLoadMore && lastVisibleItem >= totalItemCount - 2) {
                     binding.swipeRefresh.setRefreshing(true);
