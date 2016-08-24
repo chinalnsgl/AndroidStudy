@@ -69,8 +69,8 @@ public class ListActivity extends BaseActivityForDagger implements ListContract.
         };
         linearLayoutManager = new LinearLayoutManager(this);
         staggeredGridLayoutManager = new StaggeredGridLayoutManager(2,StaggeredGridLayoutManager.VERTICAL);
-        binding.recyclerView.setLayoutManager(staggeredGridLayoutManager);
-        //binding.recyclerView.setLayoutManager(linearLayoutManager);
+        //binding.recyclerView.setLayoutManager(staggeredGridLayoutManager);
+        binding.recyclerView.setLayoutManager(linearLayoutManager);
         binding.recyclerView.setAdapter(adapter);
         binding.recyclerView.setHasFixedSize(true);
         binding.recyclerView.setItemAnimator(new DefaultItemAnimator());
@@ -82,12 +82,12 @@ public class ListActivity extends BaseActivityForDagger implements ListContract.
             public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
                 super.onScrolled(recyclerView, dx, dy);
                 // 获取最后显示项目 从0开始
-                //int lastVisibleItem = linearLayoutManager.findLastVisibleItemPosition();
-                int[] lastVisibleGroup = staggeredGridLayoutManager.findLastVisibleItemPositions(null);
-                int lastVisibleItem = Math.max(lastVisibleGroup[0], lastVisibleGroup[1]);
+                int lastVisibleItem = linearLayoutManager.findLastVisibleItemPosition();
+                //int[] lastVisibleGroup = staggeredGridLayoutManager.findLastVisibleItemPositions(null);
+                //int lastVisibleItem = Math.max(lastVisibleGroup[0], lastVisibleGroup[1]);
                 // 获取项目总数
-                //int totalItemCount = linearLayoutManager.getItemCount();
-                int totalItemCount = staggeredGridLayoutManager.getItemCount();
+                int totalItemCount = linearLayoutManager.getItemCount();
+                //int totalItemCount = staggeredGridLayoutManager.getItemCount();
                 // 刷新
                 if (isLoadMore && lastVisibleItem >= totalItemCount - 2) {
                     binding.swipeRefresh.setRefreshing(true);

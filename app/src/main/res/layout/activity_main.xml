@@ -61,7 +61,7 @@
         android:id="@+id/popWindow"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/popWindw"
+        android:text="@string/popWindow"
         android:background="@color/green"
         android:layout_above="@id/popMenu"
         android:layout_marginTop="@dimen/button_vertical_margin"/>

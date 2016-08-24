@@ -10,9 +10,8 @@
     <string name="logout">退出</string>
     <string name="progress">进度对话框</string>
     <string name="list">启动列表Activity</string>
-    <string name="gril">美女</string>
     <string name="girl">美女</string>
     <string name="list2">启动列表Activity2</string>
     <string name="popMenu">弹出菜单</string>
-    <string name="popWindw">弹出窗口 My Button</string>
+    <string name="popWindow">弹出窗口</string>
 </resources>
