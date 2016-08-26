@@ -28,4 +28,11 @@
         <item name="android:backgroundDimEnabled">true</item>
         <!-- 模糊 -->
     </style>
+
+    <style name="button_main">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginTop">@dimen/button_vertical_margin</item>
+        <item name="android:background">@android:color/darker_gray</item>
+    </style>
 </resources>

@@ -5,21 +5,28 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.PopupMenu;
 
+import com.study.sgl.androidstudy.fragment.FragmentExampleActivity;
 import com.study.sgl.tools.base.BaseActivity;
+import com.study.sgl.tools.ui.TopBar;
 import com.study.sgl.tools.util.L;
 import com.study.sgl.tools.util.T;
 
 public class MainActivity extends BaseActivity implements View.OnClickListener {
 
-
     private Button popMenu;
+    private TopBar topBar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        if (getSupportActionBar() != null) {
+            getSupportActionBar().hide();
+        }
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_main);
         findViewById(R.id.startOtherActivity).setOnClickListener(this);
         findViewById(R.id.startOtherActivity2).setOnClickListener(this);
@@ -29,6 +36,12 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
         popMenu = (Button) findViewById(R.id.popMenu);
         popMenu.setOnClickListener(this);
         findViewById(R.id.popWindow).setOnClickListener(this);
+        findViewById(R.id.fragmentExample).setOnClickListener(this);
+        findViewById(R.id.filePersistence).setOnClickListener(this);
+        topBar = (TopBar) findViewById(R.id.topBar);
+        topBar.setButtonVisable(TopBar.LEFT_BUTTON, false);
+        topBar.setButtonVisable(TopBar.RIGHT_BUTTON, false);
+        //findViewById(R.id.sendNotify).setOnClickListener(this);
     }
 
     /**
@@ -126,7 +139,14 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
             case R.id.popWindow:
                 startActivity(new Intent(this, PopupWindowActivity.class));
                 break;
+            case R.id.fragmentExample:
+                startActivity(new Intent(this, FragmentExampleActivity.class));
+                break;
+            case R.id.filePersistence:
+                startActivity(new Intent(this, FilePersistenceActivity.class));
+                break;
             default:
         }
     }
+
 }

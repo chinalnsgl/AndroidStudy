@@ -1,1 +1,1 @@
-include ':app', ':tools', ':activitylifecycle', ':dagger2databindingmvp', ':mvpexample'
+include ':app', ':tools', ':activitylifecycle', ':dagger2databindingmvp', ':mvpexample', ':broadcasttest'

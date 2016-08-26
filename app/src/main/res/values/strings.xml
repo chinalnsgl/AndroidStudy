@@ -14,4 +14,17 @@
     <string name="list2">启动列表Activity2</string>
     <string name="popMenu">弹出菜单</string>
     <string name="popWindow">弹出窗口</string>
+    <string name="fragment_example">Fragment例子</string>
+    <string name="switchFragment">切换Fragment</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="fragment_one">第一个Fragment</string>
+    <string name="fragment_two">第二个Fragment</string>
+    <string name="filePersistence">文件持久化</string>
+    <string name="save">保存到文件</string>
+    <string name="saveTosp">保存到sharedPreferences</string>
+    <string name="readFromsp">从SharedPreferences读取</string>
+    <string name="sendNotify">发送通知</string>
+    <string name="index">首页</string>
 </resources>

@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">BroadcastTest</string>
+    <string name="sendBroadcast">发送广播</string>
+</resources>
