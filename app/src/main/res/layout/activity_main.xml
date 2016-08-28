@@ -76,17 +76,5 @@
             android:layout_below="@id/fragmentExample"
             android:text="@string/filePersistence"/>
 
-        <!--<Button
-            android:id="@+id/sendNotify"
-            style="@style/button_main"
-            android:layout_below="@id/fragmentExample"
-            android:text="@string/sendNotify"/>-->
-
-        <!--<com.study.sgl.androidstudy.ui.CustomTextView
-            android:text="自定义VIEW"
-            android:layout_below="@id/filePersistence"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>-->
-
     </RelativeLayout>
 </ScrollView>

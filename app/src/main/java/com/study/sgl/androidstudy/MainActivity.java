@@ -18,7 +18,6 @@ import com.study.sgl.tools.util.T;
 public class MainActivity extends BaseActivity implements View.OnClickListener {
 
     private Button popMenu;
-    private TopBar topBar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,10 +37,9 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
         findViewById(R.id.popWindow).setOnClickListener(this);
         findViewById(R.id.fragmentExample).setOnClickListener(this);
         findViewById(R.id.filePersistence).setOnClickListener(this);
-        topBar = (TopBar) findViewById(R.id.topBar);
+        TopBar topBar = (TopBar) findViewById(R.id.topBar);
         topBar.setButtonVisable(TopBar.LEFT_BUTTON, false);
         topBar.setButtonVisable(TopBar.RIGHT_BUTTON, false);
-        //findViewById(R.id.sendNotify).setOnClickListener(this);
     }
 
     /**
