@@ -27,4 +27,10 @@
     <string name="readFromsp">从SharedPreferences读取</string>
     <string name="sendNotify">发送通知</string>
     <string name="index">首页</string>
+    <string name="animation">动画</string>
+    <string name="alpha">透明</string>
+    <string name="scale">缩放</string>
+    <string name="rotate">旋转</string>
+    <string name="translate">位移</string>
+    <string name="animationset">集合</string>
 </resources>

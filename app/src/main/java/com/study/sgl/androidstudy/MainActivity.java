@@ -40,6 +40,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
         TopBar topBar = (TopBar) findViewById(R.id.topBar);
         topBar.setButtonVisable(TopBar.LEFT_BUTTON, false);
         topBar.setButtonVisable(TopBar.RIGHT_BUTTON, false);
+        findViewById(R.id.animation).setOnClickListener(this);
     }
 
     /**
@@ -142,6 +143,9 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
                 break;
             case R.id.filePersistence:
                 startActivity(new Intent(this, FilePersistenceActivity.class));
+                break;
+            case R.id.animation:
+                toActivity(AnimationActivity.class);
                 break;
             default:
         }

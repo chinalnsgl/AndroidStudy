@@ -36,6 +36,8 @@
         </activity>
         <activity android:name=".FilePersistenceActivity">
         </activity>
+        <activity android:name=".AnimationActivity">
+        </activity>
     </application>
 
 </manifest>
