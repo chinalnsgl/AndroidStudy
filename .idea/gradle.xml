@@ -15,6 +15,7 @@
             <option value="$PROJECT_DIR$/dagger2databindingmvp" />
             <option value="$PROJECT_DIR$/mvpexample" />
             <option value="$PROJECT_DIR$/tools" />
+            <option value="$PROJECT_DIR$/zxingsample" />
           </set>
         </option>
         <option name="myModules">
@@ -26,6 +27,7 @@
             <option value="$PROJECT_DIR$/dagger2databindingmvp" />
             <option value="$PROJECT_DIR$/mvpexample" />
             <option value="$PROJECT_DIR$/tools" />
+            <option value="$PROJECT_DIR$/zxingsample" />
           </set>
         </option>
       </GradleProjectSettings>

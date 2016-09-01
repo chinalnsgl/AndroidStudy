@@ -41,6 +41,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
         topBar.setButtonVisable(TopBar.LEFT_BUTTON, false);
         topBar.setButtonVisable(TopBar.RIGHT_BUTTON, false);
         findViewById(R.id.animation).setOnClickListener(this);
+        findViewById(R.id.navigation).setOnClickListener(this);
     }
 
     /**
@@ -146,6 +147,9 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
                 break;
             case R.id.animation:
                 toActivity(AnimationActivity.class);
+                break;
+            case R.id.navigation:
+                toActivity(NavigationActivity.class);
                 break;
             default:
         }

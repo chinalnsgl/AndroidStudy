@@ -33,4 +33,10 @@
     <string name="rotate">旋转</string>
     <string name="translate">位移</string>
     <string name="animationset">集合</string>
+    <string name="title_activity_navigation">NavigationActivity</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="action_settings">Settings</string>
 </resources>
