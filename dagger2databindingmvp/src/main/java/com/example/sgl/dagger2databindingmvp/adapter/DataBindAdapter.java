@@ -128,7 +128,7 @@ public abstract class DataBindAdapter<T> extends RecyclerView.Adapter<DataBindVi
             holder.itemView.setOnLongClickListener(new View.OnLongClickListener() {
                 @Override
                 public boolean onLongClick(View v) {
-                    return listener.onItemLongClick(holder.itemView, holder.getAdapterPosition());
+                    return listener.onItemLongClick(data.get(holder.getAdapterPosition()));
                 }
             });
         }
@@ -155,7 +155,7 @@ public abstract class DataBindAdapter<T> extends RecyclerView.Adapter<DataBindVi
     public interface OnItemClickListener<T> {
 
         void onItemClick(T t);
-        boolean onItemLongClick(View view, int position);
+        boolean onItemLongClick(T t);
     }
 
     /**

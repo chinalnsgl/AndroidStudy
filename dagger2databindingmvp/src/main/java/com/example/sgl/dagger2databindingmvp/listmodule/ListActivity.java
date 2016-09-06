@@ -8,7 +8,6 @@ import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.StaggeredGridLayoutManager;
-import android.view.View;
 
 import com.bumptech.glide.Glide;
 import com.example.sgl.dagger2databindingmvp.BR;
@@ -52,7 +51,7 @@ public class ListActivity extends BaseActivityForDagger implements ListContract.
             }
 
             @Override
-            public boolean onItemLongClick(View view, int position) {
+            public boolean onItemLongClick(BeautifulGirl girl) {
                 return false;
             }
         }) {
