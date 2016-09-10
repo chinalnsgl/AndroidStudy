@@ -4,7 +4,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.databinding.DataBindingUtil;
 import android.os.Bundle;
-import android.view.WindowManager;
 
 import com.bumptech.glide.Glide;
 import com.example.sgl.dagger2databindingmvp.base.BaseActivityForDagger;
@@ -19,16 +18,16 @@ public class DetailActivity extends BaseActivityForDagger {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        // 隐藏 ActionBar
+        /*// 隐藏 ActionBar
         if (getSupportActionBar() != null) {
             getSupportActionBar().hide();
         }
         // 全屏显示
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
-                WindowManager.LayoutParams.FLAG_FULLSCREEN);
+                WindowManager.LayoutParams.FLAG_FULLSCREEN);*/
 
         setContentView(R.layout.activity_detail);
-        ActivityDetailBinding binding = DataBindingUtil.setContentView(this, R.layout.activity_detail);
+        final ActivityDetailBinding binding = DataBindingUtil.setContentView(this, R.layout.activity_detail);
 
         Intent intent = getIntent();
         if (intent == null) {
@@ -37,7 +36,33 @@ public class DetailActivity extends BaseActivityForDagger {
         BeautifulGirl girl = (BeautifulGirl) intent.getSerializableExtra(param);
 
         Glide.with(this).load(girl.getUrl()).into(binding.image);
-
+        /*Glide.with(this).load(girl.getUrl()).asBitmap().into(new SimpleTarget<Bitmap>() {
+            @Override
+            public void onResourceReady(Bitmap resource, GlideAnimation<? super Bitmap> glideAnimation) {
+                binding.image.setImageBitmap(resource);
+                Palette.from(resource).generate(new Palette.PaletteAsyncListener() {
+                    @Override
+                    public void onGenerated(Palette palette) {
+                        if (palette != null) {
+                            if (getSupportActionBar() != null) {
+                                if (palette.getVibrantSwatch() != null) {
+                                    getSupportActionBar().setBackgroundDrawable(new ColorDrawable(palette.getVibrantSwatch().getRgb()));
+                                }
+                            }
+                            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                                getWindow().setStatusBarColor(palette.getLightVibrantColor(getResources().getColor(R.color.colorPrimary)));
+                            }
+                        }
+                    }
+                });
+                *//*if (getSupportActionBar() != null) {
+                    getSupportActionBar().setBackgroundDrawable(new ColorDrawable(p.getVibrantSwatch().getRgb()));
+                }
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                    getWindow().setStatusBarColor(p.getVibrantSwatch().getRgb());
+                }*//*
+            }
+        });*/
     }
 
     /**

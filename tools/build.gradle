@@ -35,4 +35,5 @@ dependencies {
     compile 'com.jakewharton:butterknife:8.2.1'
     compile 'com.google.zxing:core:3.2.1'
     compile 'com.android.support:design:24.1.1'
+    compile 'com.android.support:palette-v7:24.2.0'
 }

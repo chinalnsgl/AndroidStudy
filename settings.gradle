@@ -1,1 +1,1 @@
-include ':study', ':tools', ':activitylifecycle', ':dagger2databindingmvp', ':broadcasttest', ':zxingsample', ':graphicsandanimaction'
+include ':study', ':tools', ':activitylifecycle', ':dagger2databindingmvp', ':broadcasttest', ':zxingsample', ':graphicsandanimaction', ':CameraSample'
