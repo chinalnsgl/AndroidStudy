@@ -1,24 +1,48 @@
 package com.example.sgl.graphicsandanimaction;
 
+import android.app.Activity;
 import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
+import android.support.v7.graphics.Palette;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
 import android.view.View;
 
 import com.study.sgl.tools.util.L;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends Activity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(new AnimationSurfaceView(this));
+        setContentView(R.layout.activity_main);
 
+        Bitmap bitmap = BitmapFactory.decodeResource(getResources(), R.drawable.san);
+        /*Palette.from(bitmap).generate(new Palette.PaletteAsyncListener() {
+            @Override
+            public void onGenerated(Palette palette) {
+                Palette.Swatch vibrant = palette.getVibrantSwatch();
+                getActionBar().setBackgroundDrawable(new ColorDrawable(vibrant.getRgb()));
+
+                getWindow().setStatusBarColor(vibrant.getRgb());
+
+            }
+        });*/
+        Palette.generateAsync(bitmap, new Palette.PaletteAsyncListener() {
+            @Override
+            public void onGenerated(Palette palette) {
+                Palette.Swatch vibrant = palette.getVibrantSwatch();
+                getActionBar().setBackgroundDrawable(new ColorDrawable(vibrant.getRgb()));
+
+                getWindow().setStatusBarColor(vibrant.getRgb());
+            }
+        });
         //ImageView imageView = (ImageView) findViewById(R.id.iv);
         //imageView.setImageBitmap(BitmapUtil.decodeSampledBitmapFromResource(getResources(), R.drawable.san, 100, 100));
     }
