@@ -8,6 +8,7 @@
       <module fileurl="file://$PROJECT_DIR$/broadcasttest/broadcasttest.iml" filepath="$PROJECT_DIR$/broadcasttest/broadcasttest.iml" />
       <module fileurl="file://$PROJECT_DIR$/dagger2databindingmvp/dagger2databindingmvp.iml" filepath="$PROJECT_DIR$/dagger2databindingmvp/dagger2databindingmvp.iml" />
       <module fileurl="file://$PROJECT_DIR$/graphicsandanimaction/graphicsandanimaction.iml" filepath="$PROJECT_DIR$/graphicsandanimaction/graphicsandanimaction.iml" />
+      <module fileurl="file://$PROJECT_DIR$/myapplication/myapplication.iml" filepath="$PROJECT_DIR$/myapplication/myapplication.iml" />
       <module fileurl="file://$PROJECT_DIR$/study/study.iml" filepath="$PROJECT_DIR$/study/study.iml" />
       <module fileurl="file://$PROJECT_DIR$/tools/tools.iml" filepath="$PROJECT_DIR$/tools/tools.iml" />
       <module fileurl="file://$PROJECT_DIR$/zxingsample/zxingsample.iml" filepath="$PROJECT_DIR$/zxingsample/zxingsample.iml" />
